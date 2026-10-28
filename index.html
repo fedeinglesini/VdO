@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modelos 3D Vuelta de Obligado</title>
+    <title>Modelos Vuelta de Obligado</title>
     <style>
         body {
             font-family: system-ui, -apple-system, sans-serif;
@@ -19,63 +19,123 @@
         }
         h1 { margin-bottom: 0.5rem; text-align: center; }
         p.subtitle { color: #94a3b8; margin-bottom: 2.5rem; text-align: center; }
-        .links-container {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+        
+        /* Contenedor de la cuadrícula: separa las tarjetas entre sí con 'gap' */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem; /* Espacio separador entre tarjeta y tarjeta */
             width: 100%;
-            max-width: 500px;
+            max-width: 900px;
         }
+
+        /* Cada tarjeta completa es un enlace interactivo */
         .card-link {
             background: #1e293b;
             border: 1px solid #334155;
             border-radius: 12px;
-            padding: 1.25rem 1.5rem;
+            overflow: hidden;
+            text-decoration: none; /* Saca el subrayado típico de los links */
             color: #f8fafc;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 500;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Efecto visual cuando pasas el mouse por encima de la tarjeta */
+        .card-link:hover {
+            border-color: #3b82f6;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.15);
+        }
+
+        /* Contenedor del video en miniatura */
+        .video-wrapper {
+            width: 100%;
+            height: 180px; /* Altura de la miniatura de video */
+            background-color: #0f172a;
+            overflow: hidden;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Evita que el video se deforme */
+        }
+
+        /* Espacio interno para el texto y la flecha */
+        .card-content {
+            padding: 1.25rem; /* Margen interno para que el texto no pegue contra los bordes */
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.2s ease;
         }
-        .card-link:hover {
-            background: #334155;
-            border-color: #3b82f6;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+
+        /* Estilo del título que funciona como hipervínculo */
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #f8fafc;
+            transition: color 0.2s;
         }
+
+        /* Al pasar el mouse por la tarjeta, el título cambia de color sutilmente */
+        .card-link:hover .card-title {
+            color: #60a5fa; 
+        }
+
         .arrow {
             color: #3b82f6;
             font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .card-link:hover .arrow {
+            transform: translateX(4px); /* Mueve la flecha un poquito a la derecha al hacer hover */
         }
     </style>
 </head>
 <body>
 
-    <h1>Modelos 3D sitio: Vuelta de Obligado</h1>
-    <p class="subtitle">Selecciona una opción para acceder a su visor interactivo:</p>
+    <h1>Repositorio de Modelos 3D</h1>
+    <p class="subtitle">Haz clic en cualquier tarjeta para abrir su visor interactivo:</p>
 
-    <div class="links-container">
-        <!-- Enlace al Modelo 1 -->
+    <div class="grid-container">
+        <!-- Tarjeta 1 -->
         <a class="card-link" href="https://fedeinglesini.github.io/proyectil/" target="_blank">
-            <span>Bala de cañon</span>
-            <span class="arrow">&rarr;</span>
+            <div class="video-wrapper">
+                <video src="Bala.mp4" autoplay muted loop playsinline></video>
+            </div>
+            <div class="card-content">
+                <span class="card-title">Bala de cañon</span>
+                <span class="arrow">&rarr;</span>
+            </div>
         </a>
 
-        <!-- Enlace al Modelo 2 -->
-        <a class="card-link" href="https://fedeinglesini.github.io/Fragmento-de-proyectil/"_blank">
-            <span>Fragmento de proyectil</span>
-            <span class="arrow">&rarr;</span>
+        <!-- Tarjeta 2 -->
+        <a class="card-link" href="https://fedeinglesini.github.io/Fragmento-de-proyectil/" target="_blank">
+            <div class="video-wrapper">
+                <video src="Fragment.mp4" autoplay muted loop playsinline></video>
+            </div>
+            <div class="card-content">
+                <span class="card-title">Fragmento de poyectil</span>
+                <span class="arrow">&rarr;</span>
+            </div>
         </a>
 
-        <!-- Enlace al Modelo 3 -->
+        <!-- Tarjeta 3 -->
         <a class="card-link" href="https://fedeinglesini.github.io/Boton/" target="_blank">
-            <span>Botón de metal</span>
-            <span class="arrow">&rarr;</span>
+            <div class="video-wrapper">
+                <video src="Boton.mp4" autoplay muted loop playsinline></video>
+            </div>
+            <div class="card-content">
+                <span class="card-title">Botón de metal</span>
+                <span class="arrow">&rarr;</span>
+            </div>
         </a>
     </div>
 
 </body>
 </html>
+
