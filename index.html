@@ -105,9 +105,12 @@
     <div class="grid-container">
         <!-- Tarjeta 1 -->
         <a class="card-link" href="https://fedeinglesini.github.io/proyectil/" target="_blank">
-            <div class="video-wrapper">
-                <video src="Bala.mp4" autoplay muted loop playsinline></video>
-            </div>
+<div class="video-wrapper">
+    <video src="Bala.mp4" muted loop playsinline 
+           onmouseenter="this.play()" 
+           onmouseleave="this.pause(); this.currentTime = 0;">
+    </video>
+</div>
             <div class="card-content">
                 <span class="card-title">Bala de cañon</span>
                 <span class="arrow">&rarr;</span>
